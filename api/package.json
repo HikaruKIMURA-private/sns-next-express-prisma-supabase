@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serve.js",
+  "scripts": {
+    "dev": "nodemon serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
