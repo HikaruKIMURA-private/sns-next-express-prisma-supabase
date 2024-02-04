@@ -14,12 +14,11 @@ router.post("/register", async (req, res) => {
       username,
       email,
       password: hashedPassword,
-    }
+    },
   });
 
-  return res.json({user});
+  return res.json({ user });
 });
-
 
 //ログインAPI
 router.post("/login", async (req, res) => {
@@ -27,19 +26,19 @@ router.post("/login", async (req, res) => {
 
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user) {
-    return res.status(401).json({error: "そのユーザーは存在しません"});
+    return res.status(401).json({ error: "そのユーザーは存在しません" });
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
-    return res.status(401).json({error: "そのパスワードは間違っています"});
+    return res.status(401).json({ error: "そのパスワードは間違っています" });
   }
 
-  const token = jwt.sign({id: user.id}, process.env.SECRET_KEY, {
+  const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
     expiresIn: "1d",
   });
 
-  return res.json({ token })
+  return res.json({ token });
 });
 
 module.exports = router;

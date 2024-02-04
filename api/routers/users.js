@@ -4,7 +4,7 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 
 const prisma = new PrismaClient();
 
-router.get("/get", isAuthenticated, async (req, res) => {
+router.get("/find", isAuthenticated, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({ where: { id: req.userId } });
 
@@ -19,3 +19,5 @@ router.get("/get", isAuthenticated, async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+module.exports = router;
