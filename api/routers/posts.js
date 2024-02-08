@@ -47,11 +47,32 @@ router.get("/get_latest_post", async (req, res) => {
         },
       },
     });
-    res.status(200).json(latestPosts);
+    return res.status(200).json(latestPosts);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "サーバーエラーです" });
   }
 });
 
+router.get("/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const userPosts = await prisma.post.findMany({
+      where: {
+        authorId: parseInt(userId),
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        author: true,
+      },
+    });
+    return res.status(200).json(userPosts);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "サーバーエラーです" });
+  }
+});
 module.exports = router;
