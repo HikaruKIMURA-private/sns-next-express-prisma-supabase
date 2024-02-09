@@ -1,6 +1,6 @@
-import { PostType } from "@/types"
 import React from "react"
 import Link from "next/link"
+import { PostType } from "@/types"
 
 type Props = {
   post: PostType

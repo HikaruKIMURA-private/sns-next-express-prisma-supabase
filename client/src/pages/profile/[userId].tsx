@@ -1,7 +1,7 @@
-import apiClient from "@/lib/apiClient"
 import { GetServerSideProps } from "next"
-import { PostType, ProfileType } from "@/types"
 import React from "react"
+import apiClient from "@/lib/apiClient"
+import { PostType, ProfileType } from "@/types"
 
 type Props = {
   profile: ProfileType

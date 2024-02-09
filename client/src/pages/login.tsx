@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
-import apiClient from "@/lib/apiClient"
 import React, { useState } from "react"
 import { useAuth } from "@/context/auth"
+import apiClient from "@/lib/apiClient"
 
 const Login = () => {
   const [email, setEmail] = useState<string>("")
