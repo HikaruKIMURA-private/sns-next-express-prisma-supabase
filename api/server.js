@@ -6,7 +6,7 @@ const usersRoute = require("./routers/users");
 require("dotenv").config();
 const cors = require("cors");
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // APIでjsonを使うことを宣言する必要がある
 app.use(cors());
