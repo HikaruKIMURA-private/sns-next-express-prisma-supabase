@@ -1,5 +1,5 @@
-import React from "react"
 import Link from "next/link"
+import React from "react"
 import { PostType } from "@/types"
 
 type Props = {

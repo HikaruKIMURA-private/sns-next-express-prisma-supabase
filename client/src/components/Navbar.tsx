@@ -1,6 +1,6 @@
+import Link from "next/link"
 import React from "react"
 import { useAuth } from "@/context/auth"
-import Link from "next/link"
 
 const Navbar = () => {
   const { user, logout } = useAuth()
