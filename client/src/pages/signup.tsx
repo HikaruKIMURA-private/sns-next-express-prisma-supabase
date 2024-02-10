@@ -13,7 +13,6 @@ const Signup = () => {
     e.preventDefault()
 
     try {
-      console.log("aaa")
       await apiClient.post("/auth/register", {
         username,
         email,
